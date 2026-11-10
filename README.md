@@ -1,4 +1,4 @@
-# 🛣️ RoadGuard
+#  RoadGuard
 ### AI-Powered Road Damage Detection & Infrastructure Intelligence
 
 **Turning road images into actionable infrastructure intelligence.**
