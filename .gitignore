@@ -1,220 +1,469 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[codz]
-*$py.class
 
-# C extensions
-*.so
+# ============================================================
+# ROADGUARD - PROJECT SPECIFIC GITIGNORE
+# ============================================================
 
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
 
-# PyInstaller
-#   Usually these files are written by a python script from a template
-#   before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
+# ------------------------------------------------------------
+# 1. DATASETS AND RAW DATA
+# ------------------------------------------------------------
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+# Raw and processed datasets
+datasets/
+data/
+raw_data/
+processed_data/
+external_data/
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py.cover
-*.lcov
-.hypothesis/
-.pytest_cache/
-cover/
+# Downloaded dataset archives
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.rar
 
-# Translations
-*.mo
-*.pot
+# Dataset cache and temporary extraction
+dataset_cache/
+data_cache/
+download_cache/
+.extracted/
 
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
 
-# Flask stuff:
-instance/
-.webassets-cache
+# ------------------------------------------------------------
+# 2. AI / ML MODEL WEIGHTS
+# ------------------------------------------------------------
 
-# Scrapy stuff:
-.scrapy
+# PyTorch model weights
+*.pt
+*.pth
+*.ckpt
+*.bin
 
-# Sphinx documentation
-docs/_build/
+# ONNX and TensorRT models
+*.onnx
+*.engine
+*.plan
 
-# PyBuilder
-.pybuilder/
-target/
+# TensorFlow and Keras models
+*.h5
+*.keras
+*.pb
 
-# Jupyter Notebook
-.ipynb_checkpoints
+# TensorFlow Lite
+*.tflite
 
-# IPython
-profile_default/
-ipython_config.py
+# OpenVINO models
+*.xml
+*.blob
 
-# pyenv
-#   For a library or package, you might want to ignore these files since the code is
-#   intended to run in multiple environments; otherwise, check them in:
-# .python-version
+# Model checkpoints and optimizer states
+checkpoints/
+model_checkpoints/
+weights/
+saved_models/
 
-# pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-# Pipfile.lock
+# Model export artifacts
+exports/
 
-# uv
-#   Similar to Pipfile.lock, it is generally recommended to include uv.lock in version control.
-#   This is especially recommended for binary packages to ensure reproducibility, and is more
-#   commonly ignored for libraries.
-# uv.lock
 
-# poetry
-#   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
-#   This is especially recommended for binary packages to ensure reproducibility, and is more
-#   commonly ignored for libraries.
-#   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
-# poetry.lock
-# poetry.toml
+# ------------------------------------------------------------
+# 3. YOLO AND OBJECT DETECTION
+# ------------------------------------------------------------
 
-# pdm
-#   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
-#   pdm recommends including project-wide configuration in pdm.toml, but excluding .pdm-python.
-#   https://pdm-project.org/en/latest/usage/project/#working-with-version-control
-# pdm.lock
-# pdm.toml
-.pdm-python
-.pdm-build/
+# Ultralytics default training outputs
+runs/
 
-# pixi
-#   Similar to Pipfile.lock, it is generally recommended to include pixi.lock in version control.
-# pixi.lock
-#   Pixi creates a virtual environment in the .pixi directory, just like venv module creates one
-#   in the .venv directory. It is recommended not to include this directory in version control.
-.pixi/*
-!.pixi/config.toml
+# YOLO cache files
+*.cache
 
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
-__pypackages__/
+# Generated prediction output
+# Keep selected, documented examples in Git if useful
+predictions_tmp/
 
-# Celery stuff
-celerybeat-schedule*
-celerybeat.pid
+# Temporary inference outputs
+inference_tmp/
+prediction_cache/
 
-# Redis
-*.rdb
-*.aof
-*.pid
 
-# RabbitMQ
-mnesia/
-rabbitmq/
-rabbitmq-data/
+# ------------------------------------------------------------
+# 4. EXPERIMENTS AND TRAINING OUTPUTS
+# ------------------------------------------------------------
 
-# ActiveMQ
-activemq-data/
+# Do not ignore experiments/ globally.
+# Track selected experiment reports, CSV metrics and graphs.
 
-# SageMath parsed files
-*.sage.py
+# Temporary experiment outputs
+experiments/tmp/
+experiments/temp/
 
-# Environments
-.env
-.envrc
-.venv
-env/
+# Large experimental datasets
+experiments/**/datasets/
+
+# Experimental model weights
+experiments/**/*.pt
+experiments/**/*.pth
+experiments/**/*.onnx
+experiments/**/*.engine
+
+# TensorBoard logs
+runs/*/events.out.tfevents.*
+events.out.tfevents.*
+
+# Weights & Biases local files
+wandb/
+.wandb/
+
+# MLflow local tracking
+mlruns/
+mlartifacts/
+
+# ClearML local cache
+.clearml_cache/
+
+
+# ------------------------------------------------------------
+# 5. PYTHON ENVIRONMENTS
+# ------------------------------------------------------------
+
+.venv/
 venv/
+env/
 ENV/
+
 env.bak/
 venv.bak/
 
-# Spyder project settings
-.spyderproject
-.spyproject
+.python-version.local
 
-# Rope project settings
-.ropeproject
+# Environment-specific package caches
+pip-cache/
+.pybuild/
 
-# mkdocs/Zensical documentation
-/site
 
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
+# ------------------------------------------------------------
+# 6. ENVIRONMENT VARIABLES AND SECRETS
+# ------------------------------------------------------------
 
-# Pyre type checker
-.pyre/
+.env
+.env.*
+!.env.example
+!.env.template
 
-# pytype static type analyzer
-.pytype/
+# Credentials
+secrets/
+credentials/
+*.pem
+*.key
+*.p12
+*.pfx
 
-# Cython debug symbols
-cython_debug/
+# Cloud credentials
+.aws/
+.gcloud/
+.azure/
 
-# PyCharm
-#   JetBrains specific template is maintained in a separate JetBrains.gitignore that can
-#   be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
-#   and can be added to the global gitignore or merged into this file.  For a more nuclear
-#   option (not recommended) you can uncomment the following to ignore the entire idea folder.
-# .idea/
+# Service account credentials
+service-account*.json
+firebase-adminsdk*.json
 
-# Abstra
-#   Abstra is an AI-powered process automation framework.
-#   Ignore directories containing user credentials, local state, and settings.
-#   Learn more at https://abstra.io/docs
-.abstra/
+# SSH keys
+id_rsa
+id_ed25519
+known_hosts
 
-# Visual Studio Code
-#   Visual Studio Code specific template is maintained in a separate VisualStudioCode.gitignore that
-#   can be found at https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore
-#   and can be added to the global gitignore or merged into this file. However, if you prefer, you
-#   could uncomment the following to ignore the entire vscode folder
-# .vscode/
-# Temporary file for partial code execution
-tempCodeRunnerFile.py
 
-# Ruff stuff:
-.ruff_cache/
+# ------------------------------------------------------------
+# 7. FASTAPI / BACKEND
+# ------------------------------------------------------------
 
-# PyPI configuration file
-.pypirc
+# Logs
+logs/
+*.log
 
-# Marimo
-marimo/_static/
-marimo/_lsp/
-__marimo__/
+# Temporary files
+tmp/
+temp/
 
-# Streamlit
-.streamlit/secrets.toml
+# Runtime files
+*.pid
+*.sock
+
+# Generated API documentation
+# Keep source documentation in docs/
+api_docs_generated/
+
+# Local development files
+local_settings.py
+
+
+# ------------------------------------------------------------
+# 8. DATABASES AND GEOSPATIAL DATA
+# ------------------------------------------------------------
+
+# Local SQLite databases
+*.sqlite
+*.sqlite3
+*.db
+
+# PostgreSQL local data directories
+pgdata/
+postgres-data/
+postgresql-data/
+
+# Database backups and dumps
+*.dump
+*.sql.gz
+*.backup
+*.bak
+
+# PostGIS / GIS temporary files
+*.gpkg-wal
+*.gpkg-shm
+*.shp.xml
+
+# GIS temporary exports
+gis_temp/
+spatial_cache/
+
+# Database migration cache
+.migration_cache/
+
+
+# ------------------------------------------------------------
+# 9. VIDEO AND IMAGE PROCESSING
+# ------------------------------------------------------------
+
+# Large raw media files
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.m4v
+
+# Temporary video processing
+video_cache/
+processed_videos/
+frame_extraction/
+video_frames/
+
+# Temporary image processing
+image_cache/
+processed_images/
+thumbnails/
+
+# Keep selected demo images and prediction examples in Git.
+
+
+# ------------------------------------------------------------
+# 10. COMPUTER VISION / TRACKING
+# ------------------------------------------------------------
+
+# Object tracking outputs
+tracking_cache/
+tracker_logs/
+
+# Temporary OpenCV outputs
+opencv_cache/
+
+# Temporary frame metadata
+*.frames.json
+
+
+# ------------------------------------------------------------
+# 11. GEOSPATIAL PROCESSING
+# ------------------------------------------------------------
+
+# Spatial processing cache
+geo_cache/
+geospatial_cache/
+
+# Temporary GPS exports
+*.gpx
+*.kml
+*.kmz
+
+# Large GIS raster files
+*.tif
+*.tiff
+*.img
+
+# Large vector datasets
+*.shp
+*.shx
+*.dbf
+*.prj
+
+# Temporary mapping tiles
+tiles/
+map_cache/
+
+
+# ------------------------------------------------------------
+# 12. DOCKER AND CONTAINER DEVELOPMENT
+# ------------------------------------------------------------
+
+# Docker local overrides
+docker-compose.override.yml
+
+# Local Docker volumes
+.docker-data/
+docker-data/
+
+# Container logs
+docker-logs/
+
+
+# ------------------------------------------------------------
+# 13. TESTING AND CODE QUALITY
+# ------------------------------------------------------------
+
+.pytest_cache/
+.tox/
+.nox/
+.hypothesis/
+
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+test-results/
+test-output/
+
+# Temporary test files
+test_*.tmp
+*.test.tmp
+
+
+# ------------------------------------------------------------
+# 14. JUPYTER AND DATA ANALYSIS
+# ------------------------------------------------------------
+
+.ipynb_checkpoints/
+.ipython/
+profile_default/
+
+# Jupyter runtime files
+.jupyter/runtime/
+
+# Temporary notebook exports
+notebook_output/
+notebook_cache/
+
+
+# ------------------------------------------------------------
+# 15. IDE AND EDITOR CONFIGURATION
+# ------------------------------------------------------------
+
+# VS Code
+.vscode/
+
+# JetBrains
+.idea/
+
+# Zed local workspace settings
+# Remove this rule if sharing project-level Zed configuration
+.zed/
+
+# Vim / Emacs temporary files
+*.swp
+*.swo
+*~
+.#*
+
+# Temporary editor files
+*.tmp
+
+
+# ------------------------------------------------------------
+# 16. OPERATING SYSTEM FILES
+# ------------------------------------------------------------
+
+# Linux
+*~
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+
+# ------------------------------------------------------------
+# 17. BUILD AND DISTRIBUTION
+# ------------------------------------------------------------
+
+build/
+dist/
+.eggs/
+*.egg-info/
+wheels/
+
+# PyInstaller
+*.manifest
+*.spec
+
+
+# ------------------------------------------------------------
+# 18. LOGS AND DEBUGGING
+# ------------------------------------------------------------
+
+debug.log
+error.log
+access.log
+training.log
+inference.log
+
+*.trace
+*.prof
+
+# Python profiling
+.prof
+.profile
+
+
+# ------------------------------------------------------------
+# 19. CLOUD / DEPLOYMENT TEMPORARY FILES
+# ------------------------------------------------------------
+
+# Terraform local state
+.terraform/
+*.tfstate
+*.tfstate.*
+
+# Serverless deployment artifacts
+.serverless/
+
+# Kubernetes local configuration
+.kube-cache/
+
+# Local deployment configuration
+deployment.local.yml
+
+
+# ------------------------------------------------------------
+# 20. TEMPORARY AND GENERATED FILES
+# ------------------------------------------------------------
+
+*.temp
+*.old
+*.orig
+*.rej
+
+.cache/
+.cache_*/
+
+scratch/
+sandbox/
+generated_tmp/
+
+# Backup files
+*.backup
+*.bak
+*.swp
