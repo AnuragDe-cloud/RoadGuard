@@ -1,4 +1,4 @@
-#  RoadGuard
+ #  RoadGuard
 ### AI-Powered Road Damage Detection & Infrastructure Intelligence
 
 **Turning road images into actionable infrastructure intelligence.**
@@ -256,7 +256,7 @@ python scripts/predict.py
 ## 👥 Contributors
 
 - **Anurag De** — AI & Systems Lead
-- **Daksh** — Application & Platform Lead
+- **Daksh Saini** — Application & Platform Lead
 
 ---
 
